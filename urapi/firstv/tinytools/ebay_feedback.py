@@ -38,10 +38,10 @@ def insert_data(sellerid, data, create_datetime):
     cur = con.cursor()
     query = ['insert into firstv_feedback (sellerName,isTopRated,fstmonthPostive,fstmonthNetural,fstMonthNegative,sixMonthPostive,sixMonthNetural,',
     	'sixMonthNegative,tweMonthPostive,tweMonthNetural,tweMonthNegative,createdDate)',
-    	'values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s) ']
+    	'values (%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,%s,now()) ']
     sql = ''.join(query)
     try:
-        cur.execute(sql, (sellerid, data[0], data[1], data[4], data[7], data[2],data[5], data[8], data[3],data[6],data[9],create_datetime))
+        cur.execute(sql, (sellerid, data[0], data[1], data[4], data[7], data[2],data[5], data[8], data[3],data[6],data[9]))
         con.commit()
         # print "%s:inserting feedback for %s" % (str(datetime.datetime.now()), sellerid)
         logger.info('Inserting feddback data for %s' % sellerid)

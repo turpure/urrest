@@ -16,7 +16,9 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
-
+from firstv import views as fv
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
+    url(r"^sell/ebay-account-feedback$", fv.ebay_account_feedback, name='ebay_account_feedback'),
+    url(r"^purchase/sku-generator$", fv.sku_generator, name="sku_generator"),
 ]
